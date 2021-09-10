@@ -9,12 +9,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # Here is the deployment action
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '14'
+      - name: 🔨 Build Project
+        run: |
+          npm install
+          npm run build
+      - name: List output files
+        run: find build/ -print
       - name: Upload from public_html via FTP
         uses: airvzxf/ftp-deployment-action@latest
         with:
           server: ftp.cherishlogistics.com
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: "./"
+          local_dir: "build/"
           remote_dir: "/public_html/staging.cherishlogistics.com/"
           delete: "false"
