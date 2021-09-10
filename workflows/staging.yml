@@ -1,0 +1,20 @@
+name: CI -> Deploy to My website
+on:
+  push:
+    branches: 
+      - staging
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Here is the deployment action
+      - name: Upload from public_html via FTP
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: ftp.cherishlogistics.com
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: "./build/"
+          remote_dir: "/public_html/staging.cherishlogistics.com/"
+          delete: "false"
