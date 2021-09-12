@@ -31,7 +31,7 @@ const Navbar = () => {
     return (
         <div className={"navbar "+cls}>
             <Link className='logo' to={paths[0][1]}>
-                <img src='/favicon.ico'/>
+                <img alt="logo" src='/favicon.ico'/>
                 Cherish Logistics
             </Link>
             <ul>
