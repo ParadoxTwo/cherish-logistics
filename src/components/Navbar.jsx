@@ -10,7 +10,7 @@ const Navbar = () => {
     const handleScroll = () => {
         
         const currentScrollPos = window.pageYOffset;
-        const vis = prevScrollPos < currentScrollPos;
+        const vis = prevScrollPos > currentScrollPos;
         setPrevScrollPos(currentScrollPos);
         setVisible(vis)
     };
@@ -22,10 +22,10 @@ const Navbar = () => {
     })
     useEffect(()=>{
         if(visible){
-            setCls("navbar--hidden")
+            setCls("")
         }
         else{
-            setCls("")
+            setCls("navbar--hidden")
         }
     }, [visible])
     return (
