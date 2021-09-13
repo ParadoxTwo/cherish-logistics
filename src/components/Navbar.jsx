@@ -6,7 +6,6 @@ import './styles/navbar.scss'
 const Navbar = () => {
     const [visible, setVisible] = useState(true)
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset)
-    const [cls, setCls] = useState("")
     const handleScroll = () => {
         
         const currentScrollPos = window.pageYOffset;
@@ -20,16 +19,8 @@ const Navbar = () => {
             window.removeEventListener("scroll", handleScroll);
         }
     })
-    useEffect(()=>{
-        if(visible){
-            setCls("")
-        }
-        else{
-            setCls("navbar--hidden")
-        }
-    }, [visible])
     return (
-        <div className={"navbar "+cls}>
+        <nav className={`navbar ${!visible&&'navbar--hidden'}`}>
             <Link className='logo' to={paths[0][1]}>
                 <img alt="logo" src='/favicon.ico'/>
                 Cherish Logistics
@@ -38,7 +29,7 @@ const Navbar = () => {
                 <li><NavLink activeClassName='active' exact to='/'>HOME</NavLink></li>
                 <li><NavLink activeClassName='active' to='/contact'>CONTACT US</NavLink></li>
             </ul>
-        </div>
+        </nav>
     )
 }
 
