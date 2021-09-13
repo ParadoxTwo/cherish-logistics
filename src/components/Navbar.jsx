@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { paths } from './variables'
 import './styles/navbar.scss'
 
@@ -35,7 +35,8 @@ const Navbar = () => {
                 Cherish Logistics
             </Link>
             <ul>
-                {paths.map((path, i)=><li key={i}><Link to={path[1]}>{path[0].toUpperCase()}</Link></li>)}
+                <li><NavLink activeClassName='active' exact to='/'>HOME</NavLink></li>
+                <li><NavLink activeClassName='active' to='/contact'>CONTACT US</NavLink></li>
             </ul>
         </div>
     )
