@@ -6,12 +6,18 @@
         background-image: url('../assets/home_background.jpg');
         background-size: cover;
         background-position: bottom;
+        &.loading{
+            background: url('../assets/loading.gif') 50% no-repeat;
+
+            background-position: center;
+        }
     }
     .content-container{
         z-index: 1;
         display: flex;
         justify-content: center;
         align-items: center;
+        min-height: 300px;
         h1{
             color: darkblue;
         }

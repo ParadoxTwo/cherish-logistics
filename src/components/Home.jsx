@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './styles/home.scss'
 
 const Home = () => {
+    const [loading, setLoading] = useState('loading')
+    useEffect(()=>{
+        if(loading==='loading')
+            setLoading('')
+    },[loading])
     return (
         <div className="home">
-            <div className="header">
+            <div className={`header ${loading}`}>
 
             </div>
             <div className="content-container">
