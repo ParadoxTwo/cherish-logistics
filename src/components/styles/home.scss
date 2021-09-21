@@ -1,0 +1,36 @@
+.home{
+    height: 100vh;
+    .header{
+        height: 600px;
+        width: auto;
+        background-image: url('../assets/home_background.jpg');
+        background-size: cover;
+        background-position: bottom;
+        &.loading{
+            background: url('../assets/loading.gif') 50% no-repeat;
+
+            background-position: center;
+        }
+    }
+    .content-container{
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+        h1{
+            color: darkblue;
+        }
+        .button{
+            text-decoration: none;
+            color: darkblue;
+            padding: 10px;
+            border-radius: 10px;
+            &:hover{
+                background-color: rgb(0, 0, 139);
+                color: white;
+                transition: 300ms ease-in-out;
+            }
+        }
+    }
+}
